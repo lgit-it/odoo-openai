@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="chat-openai.list">
+      <field name="name">chat-openai list</field>
+      <field name="model">chat-openai.chat-openai</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="chat-openai.action_window">
+      <field name="name">chat-openai window</field>
+      <field name="res_model">chat-openai.chat-openai</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="chat-openai.action_server">
+      <field name="name">chat-openai server</field>
+      <field name="model_id" ref="model_chat-openai_chat-openai"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="chat-openai" id="chat-openai.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="chat-openai.menu_1" parent="chat-openai.menu_root"/>
+    <menuitem name="Menu 2" id="chat-openai.menu_2" parent="chat-openai.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="chat-openai.menu_1_list" parent="chat-openai.menu_1"
+              action="chat-openai.action_window"/>
+    <menuitem name="Server to list" id="chat-openai" parent="chat-openai.menu_2"
+              action="chat-openai.action_server"/>
+-->
+  </data>
+</odoo>
