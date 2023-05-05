@@ -1,5 +1,7 @@
 from odoo import models, fields, api
 
+from datetime import datetime, timedelta
+
 class ChatMessage(models.Model):
     _name = 'chat_message'
     _description = 'Chat Message'
@@ -9,7 +11,7 @@ class ChatMessage(models.Model):
     
     chat_discussion_id = fields.Many2one('chat_discussion', string='Chat Discussion')
 
-    _sequence = fields.Integer(string='Sequence')
+    sequence = fields.Integer(string='Sequence')
 
     user_id = fields.Many2one('res.users', string='User')
     role = fields.Char(string='Role')
@@ -27,10 +29,9 @@ class ChatDiscussion (models.Model):
         compute='_compute_last_time', store=True, readonly=True)
     
     
-    @api.depends('depends')
+    @api.depends('chat_message_ids.time_start')
     def _compute_last_time(self):
         for record in self:
-            record.field = something
+            last_message = max(record.chat_message_ids, key=lambda m: m.time_start, default=None)
+            record.last_time = last_message.time_start if last_message else False
     
-    
-    )

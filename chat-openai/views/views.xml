@@ -41,9 +41,9 @@
 -->
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="chat-openai" id="chat-openai.menu_root"/>
--->
+
+    <menuitem name="chat-openai" id="chat-openai.menu_root"    web_icon="chat-openai,static/description/icon.png"/>
+
     <!-- menu categories -->
 <!--
     <menuitem name="Menu 1" id="chat-openai.menu_1" parent="chat-openai.menu_root"/>

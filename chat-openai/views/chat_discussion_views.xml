@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- chat_discussion views -->
+<odoo>
+    <record id="chat_discussion_view_form" model="ir.ui.view">
+        <field name="name">chat_discussion Form</field>
+        <field name="model">chat_discussion</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="user_id"/>
+                        <field name="prompt"></field>
+                        <field name="gpt_model_id"/>
+                        <field name="token_limit"/>
+                        <field name="chat_folder_type_id"/>
+                        <field name="token_used"/>
+                        <field name="time_start"/>
+
+                                            </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="chat_discussion_view_tree" model="ir.ui.view">
+        <field name="name">chat_discussion Tree</field>
+        <field name="model">chat_discussion</field>
+        <field name="arch" type="xml">
+            <tree default_order="name ">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="chat_discussion_view_search" model="ir.ui.view">
+        <field name="name">chat_discussion Search</field>
+        <field name="model">chat_discussion</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="name" />
+                <separator />
+                <filter name="filter_archived" domain="[('active','=',0)]" string="Archiviati" />
+                <group expand="1" string="Group By">
+                    <filter string="Gruppo" name="name" context="{'group_by':'name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- chat_discussion action -->
+    <record id="view_chat_discussion_action" model="ir.actions.act_window">
+        <field name="name">chat_discussion</field>
+        <field name="res_model">chat_discussion</field>
+        <field name="domain"></field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="chat_discussion_view_tree" />
+    </record>
+
+    <!-- chat_discussion menu -->
+    <menuitem id="chat_discussion_menu" name="chat_discussion" parent="menu_root" sequence="40" action="view_chat_discussion_action" groups="base.group_user" />
+
+</odoo>

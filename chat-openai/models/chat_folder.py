@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 
 class ChatFolder(models.Model):
-    _name = "chat_Folder"
+    _name = "chat_folder"
     _description = "Chat Discussion"
 
     name = fields.Char()

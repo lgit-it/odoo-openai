@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_chat-openai_chat-openai,chat-openai.chat-openai,model_chat-openai_chat-openai,base.group_user,1,1,1,1
+access_chat_discussion,chat-openai.access_chat_discussion,model_chat_discussion,base.group_user,1,1,1,1
+access_chat_folder,chat-openai.access_chat_folder,model_chat_folder,base.group_user,1,1,1,1
+access_chat_message,chat-openai.access_chat_message,model_chat_message,base.group_user,1,1,1,1

@@ -23,9 +23,12 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        "views/chat_discussion_views.xml",
+        "views/chat_message_views.xml",
+        "views/chat_folder_views.xml",
     ],
     # only loaded in demonstration mode
     'demo': [

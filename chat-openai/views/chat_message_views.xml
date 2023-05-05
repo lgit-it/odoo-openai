@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- chat_message views -->
+<odoo>
+    <record id="chat_message_view_form" model="ir.ui.view">
+      <field name="name">chat_message Form</field>
+        <field name="model">chat_message</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="chat_message_view_tree" model="ir.ui.view">
+        <field name="name">chat_message Tree</field>
+        <field name="model">chat_message</field>
+        <field name="arch" type="xml">
+            <tree default_order="name ">
+                <field name="name"  />
+            </tree>
+        </field>
+    </record>
+
+    <record id="chat_message_view_search" model="ir.ui.view">
+        <field name="name">chat_message Search</field>
+        <field name="model">chat_message</field>
+        <field name="arch" type="xml">
+           <search string="">
+                <field name="name" />
+                <separator />
+                <filter name="filter_archived" domain="[('active','=',0)]" string="Archiviati" />
+                <group expand="1" string="Group By">
+                     <filter string="Gruppo" name="name" context="{'group_by':'name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- chat_message action -->
+    <record id="view_chat_message_action" model="ir.actions.act_window">
+      <field name="name">chat_message</field>
+      <field name="res_model">chat_message</field>
+      <field name="domain"></field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="chat_message_view_tree" />
+    </record>
+
+<!-- chat_message menu -->
+<menuitem id="chat_message_menu" name="chat_message" parent="menu_root" sequence="40" action="view_chat_message_action" groups="base.group_user" />
+
+</odoo>
