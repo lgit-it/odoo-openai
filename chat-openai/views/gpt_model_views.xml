@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- gpt_model views -->
+<odoo>
+    <record id="gpt_model_view_form" model="ir.ui.view">
+      <field name="name">gpt_model Form</field>
+        <field name="model">gpt_model</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                        <field name="code" />
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="gpt_model_view_tree" model="ir.ui.view">
+        <field name="name">gpt_model Tree</field>
+        <field name="model">gpt_model</field>
+        <field name="arch" type="xml">
+            <tree default_order="name ">
+                <field name="name"  />
+            </tree>
+        </field>
+    </record>
+
+    <record id="gpt_model_view_search" model="ir.ui.view">
+        <field name="name">gpt_model Search</field>
+        <field name="model">gpt_model</field>
+        <field name="arch" type="xml">
+           <search string="">
+                <field name="name" />
+                <separator />
+                <filter name="filter_archived" domain="[('active','=',0)]" string="Archiviati" />
+                <group expand="1" string="Group By">
+                     <filter string="Gruppo" name="name" context="{'group_by':'name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- gpt_model action -->
+    <record id="view_gpt_model_action" model="ir.actions.act_window">
+      <field name="name">gpt_model</field>
+      <field name="res_model">gpt_model</field>
+      <field name="domain"></field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="gpt_model_view_tree" />
+    </record>
+
+<!-- gpt_model menu -->
+<menuitem id="gpt_model_menu" name="gpt_model" parent="menu_root" sequence="40" action="view_gpt_model_action" groups="base.group_user" />
+
+</odoo>
